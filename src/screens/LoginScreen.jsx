@@ -1,11 +1,12 @@
 import React from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput, Button } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, Image, TextInput, Button, KeyboardAvoidingView, Platform } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
+import Logo from "../../assets/loginImg.svg"
 const LoginScreen = () => {
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <StatusBar hidden={true}/>
         <LinearGradient
             colors={['#50aae2', '#5ed1d2']}
@@ -17,19 +18,24 @@ const LoginScreen = () => {
                 </TouchableOpacity>
                 <View style={{marginTop: 35}}>
                     <Text style={{color: "#ffff", textAlign: "center", fontSize: 20, fontWeight: "400"}}>Sign in to Your Account</Text>
+                    <View style={{marginTop: 20}}>
+                    <Logo width={"100%"} height={200}/>
+                    </View>
                     <View style={{paddingHorizontal: 50, marginTop: 30}}>
                         <TextInput placeholder="USERNAME" placeholderTextColor="#ffff" style={styles.input}/>
                         <TextInput placeholder="PASSWORD" placeholderTextColor="#ffff" style={styles.input}/>
                         <TouchableOpacity style={styles.button}>
                             <Text style={{color: "#A3B6C8", fontWeight: "600"}}>LOG IN</Text>
                         </TouchableOpacity>
-                        
-                        <Text>D</Text>
+                        <View style={{display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'center', marginTop: 80}}>
+                            <Text style={{color: "#ffff", marginRight: 10}}>Don't have an account?</Text>
+                            <Text style={{color: "#ffff", fontWeight: "600"}}>Sign up</Text>
+                        </View>
                     </View>
                 </View>
             </View>
         </LinearGradient>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
