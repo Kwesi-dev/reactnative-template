@@ -4,13 +4,13 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import Logo from "../../assets/loginImg.svg"
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <StatusBar hidden={true}/>
         <LinearGradient
             colors={['#50aae2', '#5ed1d2']}
-            style={styles.container}
+            style={styles.container} 
         >
             <View>
                 <TouchableOpacity style={{backgroundColor: "#84DED1", height: 40, width: 40, position: 'absolute', top: 30, left: 30, borderRadius: 40/2, alignItems: 'center', justifyContent: 'center' }}>
@@ -23,8 +23,8 @@ const LoginScreen = () => {
                     </View>
                     <View style={{paddingHorizontal: 50, marginTop: 30}}>
                         <TextInput placeholder="USERNAME" placeholderTextColor="#ffff" style={styles.input}/>
-                        <TextInput placeholder="PASSWORD" placeholderTextColor="#ffff" style={styles.input}/>
-                        <TouchableOpacity style={styles.button}>
+                        <TextInput placeholder="PASSWORD" placeholderTextColor="#ffff" secureTextEntry={true} style={styles.input}/>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Home")}>
                             <Text style={{color: "#A3B6C8", fontWeight: "600"}}>LOG IN</Text>
                         </TouchableOpacity>
                         <View style={{display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'center', marginTop: 80}}>
