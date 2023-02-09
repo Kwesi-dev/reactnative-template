@@ -1,10 +1,10 @@
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons';
-const Card = () => {
+const Card = ({ details }) => {
   return (
-    <View style={{width: "100%", marginBottom: 20, display: 'flex', flexDirection: "row",justifyContent: 'space-between', height: 190, borderRadius: 10,  backgroundColor: "#5185FF", padding: 20}}>
-        <View style={{flex: 0.4, width: 40, height: 40, marginRight: 10,  borderRadius: 40/2, backgroundColor: "#4374E5"}}>
+    <View style={{width: "100%", marginBottom: 20, display: 'flex', flexDirection: "row",justifyContent: 'space-between', height: 190, borderRadius: 10,  backgroundColor: details.bgColor, padding: 20}}>
+        <View style={{flex: 0.4, width: 40, height: 40, marginRight: 10,  borderRadius: 40/2, backgroundColor: details.pColor ? details.pColor : "#4374E5"}}>
         </View>
         <View style={{flex: 2.5}}>
             <View style={{display: 'flex', flexDirection: "row", alignItems: "center"}}>

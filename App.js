@@ -1,10 +1,18 @@
-import { Image, Platform, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./src/screens/Home";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./src/screens/LoginScreen";
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import Tabs from "./src/components/Tabs";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 const statusbarHeight = getStatusBarHeight();
@@ -12,6 +20,9 @@ const statusbarHeight = getStatusBarHeight();
 const CustomHeader = () => {
   return (
     <View style={styles.header}>
+      <TouchableOpacity style={{ position: "absolute", right: 15, top: 20 }}>
+        <MaterialIcons name="more-vert" size={24} color="black" />
+      </TouchableOpacity>
       <View
         style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
       >
